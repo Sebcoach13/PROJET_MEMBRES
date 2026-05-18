@@ -1,0 +1,1 @@
+![Python Checks](https://github.com/Sebcoach13/PROJET_MEMBRES/actions/workflows/python-tests.yml/badge.svg)
