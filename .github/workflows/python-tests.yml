@@ -1,0 +1,20 @@
+name: Python Checks
+
+on: [push, pull_request] # Se lance à chaque push sur GitHub
+
+jobs:
+  build:
+    runs-on: ubuntu-latest # Utilise un ordinateur sous Linux
+
+    steps:
+    - uses: actions/checkout@v4 # Récupère ton code
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10' # Installe Python 3.10
+
+    - name: Run my tests
+      run: |
+        # Lance le test qu'on a écrit ensemble
+        python tests/test_app.py
