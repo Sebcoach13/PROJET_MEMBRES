@@ -1,23 +1,30 @@
+from flask import Flask, render_template, request, jsonify
 from models import create_member
-from validators import get_valid_name, get_valid_number 
 
+app = Flask(__name__)
 list_of_members = []
 
-if __name__ == "__main__":
-    print("--- Inscription des membres ---")
+# 1. Cette route affiche le formulaire quand on va sur le site
+@app.route('/')
+def home():
+    return render_template('formulaire.html')
+
+# 2. Cette route reçoit les données du formulaire quand on clique sur le bouton
+@app.route('/inscription', methods=['POST'])
+def inscription():
+    # On récupère ce que l'utilisateur a tapé dans les cases HTML
+    nom = request.form.get('nom')
+    prenom = request.form.get('prenom')
+    age = int(request.form.get('age'))
+    taille = float(request.form.get('taille'))
     
-    # 1. On récupère les infos (les fonctions sont dans validators.py)
-    nom = get_valid_name("Entrez le nom : ")
-    prenom = get_valid_name("Entrez le prénom : ")
-    age = get_valid_number("Entrez l'âge : ", int)
-    taille = get_valid_number("Entrez la taille (ex: 1.75) : ", float)
-    
-    # 2. On crée le membre avec les VRAIES variables qu'on vient de saisir
-    # (On ne laisse pas 30 et 1.80 écrits en dur !)
+    # On utilise ton moule dans models.py !
     membre = create_member(nom, prenom, age, taille)
-    
-    # 3. On ajoute à la liste
     list_of_members.append(membre)
     
-    print("\n✅ Liste des membres enregistrés :")
-    print(list_of_members)
+    # On affiche la liste des membres en format JSON (texte propre) à l'écran
+    return jsonify({"message": "Membre inscrit avec succès !", "liste_actuelle": list_of_members})
+
+if __name__ == "__main__":
+    # Lance le serveur web local
+    app.run(debug=True)

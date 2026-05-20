@@ -1,0 +1,56 @@
+/* Style pour la page de succès */
+.success-container {
+    background: white; 
+    padding: 30px; 
+    border-radius: 8px; 
+    max-width: 400px; 
+    margin: 50px auto; 
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); 
+    text-align: center;
+}
+
+.success-title {
+    color: #28a745;
+    margin-bottom: 15px;
+}
+
+.btn-back {
+    display: inline-block; 
+    background: #007bff; 
+    color: white; 
+    padding: 10px 15px; 
+    border-radius: 4px; 
+    text-decoration: none; 
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.btn-back:hover {
+    background: #0056b3;
+}
+
+.separator {
+    border: 0; 
+    border-top: 1px solid #eee; 
+    margin: 20px 0;
+}
+
+
+body { 
+    font-family: sans-serif; 
+    margin: 40px; 
+    background-color: #f4f4f9; 
+}
+
+form { 
+    background: white; 
+    padding: 20px; 
+    border-radius: 8px; 
+    max-width: 350px; 
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); 
+}
+
+input { width: 100%; padding: 8px; margin: 8px 0 16px 0; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+input[type=submit] { background-color: #28a745; color: white; border: none; cursor: pointer; font-weight: bold; }
+input[type=submit]:hover { background-color: #218838; }
+   
